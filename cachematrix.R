@@ -1,11 +1,9 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
+## There are two functions makeCacheMatrix
+## MakeCacheMatrix consists of set,get,setinv,getinv
 library(MASS)
 
 makeCacheMatrix <- function(x = matrix()) {
- inv<-NULL # initializing inverse as NULL
+ inv<-NULL # initialize inverse value as NULL
  set<-function(y){
    x<<-y
    inv<<- NULL
@@ -15,25 +13,25 @@ makeCacheMatrix <- function(x = matrix()) {
  getinv<-function()
  {
    inver<-ginv(x)
-   inver%*%x  ##function to obtain inverse of the matrix  
+   inver%*%x  ##to obtain inverse of a function   
  }
  list(set=set,get=get,setinv=setinv,getinv=getinv)
  
-## Write a short comment describing this function
 
-## this is used to get the cached data 
+
+## cacheSolve function helps to get the cache data 
+ ## and finally returning the inverse of the matrix
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
   inv<-x$getinv()
   if(!is.null(inv))
   {
-    #checking whether inverse is NULL
-    message("getting cached data!")
+    message("GETTING CACHED DATA!!!")
     return(inv)   #returns inverse value 
   }
   data<-x$get()
-  inv<-solve(data,...)# calculates inverse value 
+  inv<-solve(data,...)# Calculating the inverse value
   x$setinv(inv)
-  inv ## return a matrix that is the inverse of 'x'
+  inv ## return a matrix that is inverse of 'x'
 }
