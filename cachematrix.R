@@ -1,4 +1,4 @@
-## There are two functions makeCacheMatrix
+## There are two functions makeCacheMatrix & cacheSolve
 ## MakeCacheMatrix consists of set,get,setinv,getinv
 library(MASS)
 
