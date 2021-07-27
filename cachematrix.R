@@ -25,7 +25,7 @@ makeCacheMatrix <- function(x = matrix())
 
 
 ## cacheSolve function helps to get the cache data 
- ## finally returning the inverse of the matrix
+ ## returning the inverse of the matrix 
 
 cacheSolve <- function(x, ...)
   {
