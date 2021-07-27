@@ -1,11 +1,12 @@
 ## There are two functions makeCacheMatrix & cacheSolve
 ## MakeCacheMatrix consists of set,get,setinv,getinv
 
-## Caluclating the inverse of matrix using cached value
+## Caluclating the inverse of matrix using set,get,setinv and getinv functions
+## library(MASS) is used to calculate inverse for non squared as welll as squared matrices
 library(MASS)
-makeCacheMatrix <- function(x = matrix()) 
+makeCacheMatrix<-function(x = matrix()) 
 {
- inv<-NULL # initialize inverse value as NULL
+ inv<-NULL        # initialize inverse value as NULL
  set<-function(y)
    {
    x<<-y
@@ -15,14 +16,15 @@ makeCacheMatrix <- function(x = matrix())
   get<-function()x # function to get matrix x
   
   setinv<-function(inverse) inv<<-inverse
-  getinv<-function()
-    {
-   inver<-ginv(x)
-   inver%*%x  ##to obtain inverse of a function   
-    }
+  getinv<-function(){
+    
+    inver<-ginv(x)
+    inver%*%x##function to obtain inverse of a function  
+  }
+    
  list(set=set,get=get,setinv=setinv,getinv=getinv)
  
-
+}
 
 ## cacheSolve function helps to get the cache data 
  ## returning the inverse of the matrix 
@@ -44,6 +46,5 @@ cacheSolve <- function(x, ...)
   x$setinv(inv)
   inv ## returns the matrix  that is inverse of 'x'
 }
-}
 
-## to get inverse of all type of matrix 
+
