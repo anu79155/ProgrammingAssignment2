@@ -3,6 +3,7 @@
 
 ## Caluclating the inverse of matrix using set,get,setinv and getinv functions
 ## library(MASS) is used to calculate inverse for non squared as welll as squared matrices
+## cacheSolve function helps to store inverse of matrix where it can be cached directly
 library(MASS)
 makeCacheMatrix<-function(x = matrix()) 
 {
