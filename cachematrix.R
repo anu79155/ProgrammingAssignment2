@@ -46,3 +46,4 @@ cacheSolve <- function(x, ...)
 }
 }
 
+## to get inverse of all type of matrix 
